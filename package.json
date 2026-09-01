@@ -1,0 +1,114 @@
+{
+  "name": "@tastic/animations",
+  "version": "0.1.0",
+  "description": "Shared visual effects for React Native games: an SVG+Reanimated Fireworks celebration burst, and a Skia+Reanimated GravityWell particle-swirl marker",
+  "keywords": [
+    "react-native",
+    "expo",
+    "game",
+    "animation",
+    "fireworks",
+    "particles",
+    "gravity-well",
+    "svg",
+    "skia",
+    "reanimated"
+  ],
+  "homepage": "https://github.com/jayrdeaton/react-native-game-animations#readme",
+  "bugs": {
+    "url": "https://github.com/jayrdeaton/react-native-game-animations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayrdeaton/react-native-game-animations.git"
+  },
+  "license": "MIT",
+  "author": "Jay Deaton",
+  "sideEffects": false,
+  "type": "commonjs",
+  "exports": {
+    "./fireworks": {
+      "react-native": "./src/fireworks/index.ts",
+      "browser": "./src/fireworks/index.ts",
+      "types": "./dist/fireworks/index.d.ts",
+      "import": "./dist/fireworks/index.mjs",
+      "require": "./dist/fireworks/index.js"
+    },
+    "./gravity": {
+      "react-native": "./src/gravity/index.ts",
+      "browser": "./src/gravity/index.ts",
+      "types": "./dist/gravity/index.d.ts",
+      "import": "./dist/gravity/index.mjs",
+      "require": "./dist/gravity/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/__tests__",
+    "!src/__mocks__"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "fix": "eslint --fix",
+    "lint": "eslint",
+    "prepublishOnly": "npm run build",
+    "release": "git push --follow-tags",
+    "release:major": "npm version major && npm run release",
+    "release:minor": "npm version minor && npm run release",
+    "release:patch": "npm version patch && npm run release",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run lint && npm test && npm run typecheck && npm run build",
+    "preversion": "npm run verify"
+  },
+  "prettier": "@infinitetoken/eslint-config/prettier",
+  "devDependencies": {
+    "@infinitetoken/eslint-config": "^0.2.0",
+    "@infinitetoken/jest-config": "^0.2.3",
+    "@infinitetoken/tsconfig": "^0.4.1",
+    "@shopify/react-native-skia": "^2.6.2",
+    "@tastic/core": "^0.1.5",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.0.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-native": "^5.0.0",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "prettier": "^3.8.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-native": "^0.86.3",
+    "react-native-reanimated": "^4.5.1",
+    "react-native-svg": "^15.15.4",
+    "tsup": "^8.0.0",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "@shopify/react-native-skia": ">=1.5.0",
+    "@tastic/core": ">=0.1.0",
+    "react": ">=19.0.0",
+    "react-native": ">=0.76.0",
+    "react-native-reanimated": ">=3.0.0",
+    "react-native-svg": ">=13.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@shopify/react-native-skia": {
+      "optional": true
+    },
+    "@tastic/core": {
+      "optional": true
+    },
+    "react-native-svg": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
