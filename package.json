@@ -1,6 +1,6 @@
 {
   "name": "@tastic/animations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared visual effects for React Native games: an SVG+Reanimated Fireworks celebration burst, and a Skia+Reanimated GravityWell particle-swirl marker",
   "keywords": [
     "react-native",
