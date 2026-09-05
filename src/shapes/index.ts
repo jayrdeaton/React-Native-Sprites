@@ -1,0 +1,5 @@
+export { CelebrationRings, type CelebrationRingsProps } from './CelebrationRings'
+export { Disc, type DiscProps } from './Disc'
+export { GoalPost, type GoalPostProps } from './GoalPost'
+export { MysteryPickup, type MysteryPickupProps } from './MysteryPickup'
+export { ObstacleRect, type ObstacleRectProps } from './ObstacleRect'

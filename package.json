@@ -1,7 +1,7 @@
 {
-  "name": "@tastic/animations",
+  "name": "@tastic/sprites",
   "version": "0.1.1",
-  "description": "Shared visual effects for React Native games: an SVG+Reanimated Fireworks celebration burst, and a Skia+Reanimated GravityWell particle-swirl marker",
+  "description": "Shared visual effects for React Native games: an SVG+Reanimated Fireworks celebration burst, a Skia+Reanimated GravityWell particle-swirl marker, a Skia+Reanimated set of board shapes (ObstacleRect, GoalPost, Disc, CelebrationRings, MysteryPickup), and a Skia+Reanimated set of hockey rink chrome (ZoneLine, FaceoffCircle, GoalDoorFlash, ScoreWedges)",
   "keywords": [
     "react-native",
     "expo",
@@ -12,15 +12,20 @@
     "gravity-well",
     "svg",
     "skia",
-    "reanimated"
+    "reanimated",
+    "board-game",
+    "puck",
+    "pickup",
+    "hockey",
+    "rink"
   ],
-  "homepage": "https://github.com/jayrdeaton/react-native-game-animations#readme",
+  "homepage": "https://github.com/jayrdeaton/react-native-sprites#readme",
   "bugs": {
-    "url": "https://github.com/jayrdeaton/react-native-game-animations/issues"
+    "url": "https://github.com/jayrdeaton/react-native-sprites/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jayrdeaton/react-native-game-animations.git"
+    "url": "git+https://github.com/jayrdeaton/react-native-sprites.git"
   },
   "license": "MIT",
   "author": "Jay Deaton",
@@ -40,6 +45,20 @@
       "types": "./dist/gravity/index.d.ts",
       "import": "./dist/gravity/index.mjs",
       "require": "./dist/gravity/index.js"
+    },
+    "./hockey": {
+      "react-native": "./src/hockey/index.ts",
+      "browser": "./src/hockey/index.ts",
+      "types": "./dist/hockey/index.d.ts",
+      "import": "./dist/hockey/index.mjs",
+      "require": "./dist/hockey/index.js"
+    },
+    "./shapes": {
+      "react-native": "./src/shapes/index.ts",
+      "browser": "./src/shapes/index.ts",
+      "types": "./dist/shapes/index.d.ts",
+      "import": "./dist/shapes/index.mjs",
+      "require": "./dist/shapes/index.js"
     }
   },
   "files": [
