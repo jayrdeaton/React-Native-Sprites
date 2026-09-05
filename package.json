@@ -1,6 +1,6 @@
 {
   "name": "@tastic/sprites",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Shared visual effects for React Native games: an SVG+Reanimated Fireworks celebration burst, a Skia+Reanimated GravityWell particle-swirl marker, a Skia+Reanimated set of board shapes (ObstacleRect, GoalPost, Disc, CelebrationRings, MysteryPickup), and a Skia+Reanimated set of hockey rink chrome (ZoneLine, FaceoffCircle, GoalDoorFlash, ScoreWedges)",
   "keywords": [
     "react-native",
