@@ -17,6 +17,8 @@ npm install @tastic/sprites
 
 `react-native-svg` (for `Fireworks`) and `@shopify/react-native-skia` (for `GravityWell`/`shapes`/`hockey`) are **optional** peer dependencies — install whichever your app actually uses.
 
+`react-native-reanimated` (>=3.0.0) is required by every subpath. `@tastic/core` (>=0.10.0) is optional too, but `./gravity` needs it: it imports `clamp` from core's dependency-free `@tastic/core/math` entry.
+
 ## Usage
 
 ```tsx

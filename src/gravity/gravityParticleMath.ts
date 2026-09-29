@@ -9,7 +9,7 @@
 // `Math.min(Math.max(...))` in the two spots that needed clamping), both now replaced by the shared
 // package.
 
-import { clamp } from '@tastic/core'
+import { clamp } from '@tastic/core/math'
 
 // π(3 - √5) radians — the golden angle (~137.5077640500378°). Placing particle `index` at
 // `index * GOLDEN_ANGLE_RAD` spreads any number of them evenly around the well with no two ever
