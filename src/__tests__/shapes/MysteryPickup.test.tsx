@@ -8,7 +8,7 @@ import { MysteryPickup, type MysteryPickupProps } from '../../shapes/MysteryPick
 // withDelay/withRepeat as passthroughs (no simulated progress-over-time), so this component's mount
 // effect reads as already fully resolved (intro=1, pulse=1) the instant it flushes. But that first
 // render's own useDerivedValue calls already ran *before* the effect (React flushes effects after
-// render), so they still reflect the pre-effect snapshot (intro=0, pulse=0) — a second, identical
+// render), so they still reflect the pre-effect snapshot (intro=0, pulse=0) - a second, identical
 // rerender is needed to see a fresh useDerivedValue call against the now-resolved shared values.
 // This suite asserts those two real endpoints (freshly mounted vs. settled), not mid-animation
 // timing, same as CelebrationRings' own tests.
@@ -24,7 +24,7 @@ function circleCalls() {
 }
 
 // Clears the mock and rerenders with identical props, so the resulting circleCalls() reflect only
-// this render's own (now fully-resolved) useDerivedValue snapshot — see this file's header comment.
+// this render's own (now fully-resolved) useDerivedValue snapshot - see this file's header comment.
 function settle(rerender: ReturnType<typeof renderPickup>['rerender'], props: Partial<MysteryPickupProps> = {}) {
   ;(Circle as jest.Mock).mockClear()
   rerender(<MysteryPickup {...defaults} {...props} />)

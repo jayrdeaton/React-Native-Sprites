@@ -3,11 +3,11 @@ import { useEffect, useRef } from 'react'
 import { Easing, interpolateColor, useDerivedValue, useSharedValue, withTiming } from 'react-native-reanimated'
 
 // Reconciled from BoxHockey's and AirHockey's Board.tsx "Goal door flash" (puck/ball hit the
-// invisible one-way door at the goal mouth) — confirmed byte-for-byte identical logic in both apps
+// invisible one-way door at the goal mouth) - confirmed byte-for-byte identical logic in both apps
 // (AirHockey's own comment: "Ported from BoxHockey unchanged"), including all four decay/glow
 // constants (GOAL_DOOR_FLASH_COLOR_DECAY_MS=120, GOAL_DOOR_FLASH_OPACITY_DECAY_MS=1200,
 // GOAL_DOOR_FLASH_GLOW_WIDTH_RATIO=4, GOAL_DOOR_FLASH_GLOW_PEAK_OPACITY=0.55) and the hot-white
-// peak color (#FFFFFF) each side's flash decays back down from — all baked in here as internal
+// peak color (#FFFFFF) each side's flash decays back down from - all baked in here as internal
 // constants rather than props, same treatment this package's own CelebrationRings gives its own
 // confirmed-identical timings, since no source app varies any of them.
 //
@@ -20,7 +20,7 @@ import { Easing, interpolateColor, useDerivedValue, useSharedValue, withTiming }
 // its own hit counter, since a real hit is only ever on one side at a time and this mirrors the
 // shape callers already have their own game state in.
 //
-// hitCount is compared against a ref seeded with its OWN first-render value (not a hardcoded 0) —
+// hitCount is compared against a ref seeded with its OWN first-render value (not a hardcoded 0) -
 // both source apps' own comments explain why: this counter never resets between rounds/games, so a
 // component remounting partway through one (e.g. Fast Refresh) could otherwise see an
 // already-nonzero starting value and spuriously flash on mount.
@@ -33,14 +33,14 @@ const OPACITY_DECAY_MS = 1200
 const FLASH_PEAK_COLOR = '#FFFFFF'
 
 export type GoalDoorFlashProps = {
-  /** Goal mouth's horizontal span, shared by both doors — wherever the caller's own goal-line
+  /** Goal mouth's horizontal span, shared by both doors - wherever the caller's own goal-line
    *  <Line>s deliberately leave a gap open for this component to fill in on a hit. */
   leftX: number
   rightX: number
   /** y of the top door / bottom door, matching whatever the caller draws its own boundary Lines at. */
   topY: number
   bottomY: number
-  /** Color each side's flash decays back down to once the hot-white impact peak cools — the goal
+  /** Color each side's flash decays back down to once the hot-white impact peak cools - the goal
    *  OWNER's color (a hit on the top door means whoever defends the top conceded, so BoxHockey/
    *  AirHockey both interpolate it toward THAT player's own color). Which player owns which side is
    *  real game logic and stays with the caller. */
@@ -51,9 +51,9 @@ export type GoalDoorFlashProps = {
    *  GOAL_LINE_STROKE_WIDTH. */
   strokeWidth?: number
   /** Same counter+side-discriminator shape as both source apps' own BoardProps
-   *  (goalDoorHitCount/lastGoalDoorSide) — incrementing hitCount with hitSide 'top' or 'bottom'
+   *  (goalDoorHitCount/lastGoalDoorSide) - incrementing hitCount with hitSide 'top' or 'bottom'
    *  triggers that side's flash; the other side is untouched. Seed hitCount at whatever value your
-   *  own game state already holds (not necessarily 0) — see this file's own header comment for why
+   *  own game state already holds (not necessarily 0) - see this file's own header comment for why
    *  a remount is still safe even when that value is already nonzero. */
   hitCount: number
   hitSide: 'top' | 'bottom' | null

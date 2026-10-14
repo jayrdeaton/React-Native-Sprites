@@ -2,11 +2,11 @@ import { Circle, Group } from '@shopify/react-native-skia'
 import { useEffect } from 'react'
 import { Easing, useDerivedValue, useSharedValue, withDelay, withTiming } from 'react-native-reanimated'
 
-// Reconciled from BoxHockey's and AirHockey's Board.tsx goal-celebration rings — a trio of
+// Reconciled from BoxHockey's and AirHockey's Board.tsx goal-celebration rings - a trio of
 // stroked circles expanding outward from a point and fading as they grow, staggered 160ms apart,
 // confirmed byte-for-byte identical between the two apps (same 850/160/320ms timings, same 0.75
 // peak opacity, same 2.5/2/1.5 per-ring stroke widths). Centered on the goal itself (x/y) rather
-// than on any specific puck/ball instance — a scored puck may already be fading or bursting away
+// than on any specific puck/ball instance - a scored puck may already be fading or bursting away
 // on its own concurrently (see e.g. BoxHockey's own puck-departure shard burst, which is NOT
 // duplicated closely enough between apps to belong in this shared package) while these rings mark
 // the goal that was scored on.
@@ -15,7 +15,7 @@ import { Easing, useDerivedValue, useSharedValue, withDelay, withTiming } from '
 // restart their expansion whenever this prop changes to a non-null value; null is always "no
 // celebration playing," matching both apps resetting lastScoredGoal back to null between rounds.
 //
-// This component doesn't hide itself at rest — before any trigger fires, all three rings sit at
+// This component doesn't hide itself at rest - before any trigger fires, all three rings sit at
 // baseRadius with 0.75 opacity (the literal result of ring1P/2P/3P starting at 0), same as both
 // source apps' own pre-effect defaults. Both apps only ever mount their ring JSX at all behind
 // `lastScoredGoal !== null`; a caller here is expected to do the same (`triggerKey !== null &&
@@ -39,7 +39,7 @@ export type CelebrationRingsProps = {
 
 export function CelebrationRings({ x, y, color, baseRadius, maxExpansionRadius, triggerKey }: CelebrationRingsProps) {
   // Kept as shared values (not read directly as the plain props) so the derived radii below stay
-  // current even if the board is resized mid-celebration — same discipline as puckRadiusSV/
+  // current even if the board is resized mid-celebration - same discipline as puckRadiusSV/
   // maxRingR in both source apps, and GravityWell's own holeRadius hoisting in this package.
   const baseRadiusSV = useSharedValue(baseRadius)
   baseRadiusSV.value = baseRadius

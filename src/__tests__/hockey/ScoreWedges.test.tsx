@@ -5,7 +5,7 @@ import { ScoreWedges, type ScoreWedgesProps } from '../../hockey/ScoreWedges'
 
 // Skia.PathBuilder.Make() returns a fresh object per call, but its addArc/close/detach all point at
 // the SAME shared mock function across every returned builder (see src/__mocks__/rn-skia.ts's own
-// header comment) — so reading .mock.calls off any one returned builder's addArc sees every arc any
+// header comment) - so reading .mock.calls off any one returned builder's addArc sees every arc any
 // wedge built, in order, without needing to track each builder instance separately.
 function addArcCalls() {
   const results = (Skia.PathBuilder.Make as jest.Mock).mock.results

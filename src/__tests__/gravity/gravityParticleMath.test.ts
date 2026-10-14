@@ -75,7 +75,7 @@ describe('gravityParticleRadius', () => {
     }
   })
 
-  // GravityWell actually calls this with innerRadius 0 and outerRadius the hole's own radius —
+  // GravityWell actually calls this with innerRadius 0 and outerRadius the hole's own radius -
   // particles stay contained inside the hole itself (its center to its edge), never spilling out
   // into whatever's beyond it.
   it('stays within [0, holeRadius] when bounded by the hole itself, in either direction', () => {

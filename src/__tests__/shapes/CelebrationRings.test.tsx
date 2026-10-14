@@ -7,7 +7,7 @@ import { CelebrationRings, type CelebrationRingsProps } from '../../shapes/Celeb
 // src/__mocks__/rn-skia.ts), so assertions read call *props* off Circle.mock.calls/Group.mock.calls.
 // react-native-reanimated's own mock (src/__mocks__/react-native-reanimated.ts) resolves
 // withTiming/withDelay as passthroughs (no simulated progress-over-time), so a triggered
-// celebration reads as already fully resolved (progress 1) the instant its effect flushes — this
+// celebration reads as already fully resolved (progress 1) the instant its effect flushes - this
 // suite asserts the two real endpoints (never triggered vs. triggered-and-resolved), not
 // mid-animation timing, same as this package's other animated components' own tests.
 
@@ -44,7 +44,7 @@ describe('CelebrationRings', () => {
     expect(circleCalls()[2][0].strokeWidth).toBe(1.5)
   })
 
-  it('sits at baseRadius with 0.75 opacity before any trigger, since it does not hide its own rest state (see the component doc comment) — a caller is expected not to mount it until a celebration actually starts', () => {
+  it('sits at baseRadius with 0.75 opacity before any trigger, since it does not hide its own rest state (see the component doc comment) - a caller is expected not to mount it until a celebration actually starts', () => {
     renderRings({ baseRadius: 10 })
 
     for (const [props] of circleCalls()) {
@@ -61,8 +61,8 @@ describe('CelebrationRings', () => {
 
     const triggered = <CelebrationRings {...defaults} baseRadius={10} maxExpansionRadius={80} triggerKey='top' />
     // Two rerenders, deliberately: the first fires the triggering useEffect, which mutates
-    // ring1P/2P/3P.value (resolved instantly by the mocked withTiming/withDelay — see this file's
-    // own header comment) — but that same render's *own* r/opacity derived values were already
+    // ring1P/2P/3P.value (resolved instantly by the mocked withTiming/withDelay - see this file's
+    // own header comment) - but that same render's *own* r/opacity derived values were already
     // computed during render, before the effect ran, so they're still the pre-trigger snapshot.
     // The second rerender (identical props, so the effect itself does not fire again) re-invokes
     // useDerivedValue against the now-resolved shared values. mockClear() right before it, since

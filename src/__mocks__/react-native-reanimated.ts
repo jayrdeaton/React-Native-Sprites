@@ -1,7 +1,7 @@
 /* global jest */
 // Ported from Hangman's src/__mocks__/react-native-reanimated.ts. Fireworks.tsx itself only needs
 // useAnimatedProps, useSharedValue, withSequence, withTiming, Easing, and
-// Animated.createAnimatedComponent — but this mock is shared (via jest.config.cjs's
+// Animated.createAnimatedComponent - but this mock is shared (via jest.config.cjs's
 // moduleNameMapper) with the sibling GravityWell component, which additionally needs
 // useDerivedValue and a SharedValue-shaped useSharedValue return. The rest of the surface below is
 // kept intact rather than trimmed to only what's exercised today, since a mock this general is
@@ -15,7 +15,7 @@ const passthroughLast = (...values: unknown[]) => values[values.length - 1]
 const Animated = {
   View: RN.View,
   createAnimatedComponent: (Component: unknown) => Component,
-  // Real shared values are stable across re-renders (ref-like) — a fresh `{ value }` object per
+  // Real shared values are stable across re-renders (ref-like) - a fresh `{ value }` object per
   // call, as this used to be, silently drops any mutation the instant something else triggers a
   // re-render, since the next render just makes a brand new one starting back at the initial
   // value. Anything that mutates .value from an event callback and expects a later render to
@@ -46,7 +46,7 @@ const Animated = {
     try {
       react(prepare(), undefined)
     } catch {
-      // Swallowed, same as useAnimatedStyle/useAnimatedProps above — a reaction that throws on
+      // Swallowed, same as useAnimatedStyle/useAnimatedProps above - a reaction that throws on
       // this one-shot mock call shouldn't fail a test that isn't exercising it.
     }
   },

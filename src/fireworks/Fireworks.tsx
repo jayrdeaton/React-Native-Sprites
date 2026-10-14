@@ -11,14 +11,14 @@ const FADE_MS = 550
 // Exported (along with the interval bounds below) so tests can assert against the real values
 // instead of hand-copied magic numbers.
 export const BURST_LIFETIME_MS = EXPAND_MS + FADE_MS
-// Random gap between bursts, re-rolled after every spawn — keeps the show continuous rather than
+// Random gap between bursts, re-rolled after every spawn - keeps the show continuous rather than
 // landing in fixed, synchronized batches (which reads as a mechanical "shoot three, pause, shoot
 // three" instead of an organic fireworks display).
 export const MIN_BURST_INTERVAL_MS = 180
 export const MAX_BURST_INTERVAL_MS = 420
 // Particle fill colors come straight from the active theme (primary/secondary/tertiary), which can
 // land close in luminance to the app's flat background for some theme colors (e.g. a light yellow
-// in light mode) — a thin outline in the opposite luminance keeps every particle visible
+// in light mode) - a thin outline in the opposite luminance keeps every particle visible
 // regardless of how its fill happens to contrast with the background behind it.
 const LIGHT_MODE_OUTLINE = '#00000080'
 const DARK_MODE_OUTLINE = '#FFFFFF80'
@@ -40,11 +40,11 @@ export type FireworksProps = {
   colors: string[]
   dark?: boolean
   /** Fires once per burst spawn (same 180-420ms cadence as the bursts themselves). The package has
-   *  no audio/haptics dependency — wire your own feedback here (e.g. a haptic pulse and/or a pop
+   *  no audio/haptics dependency - wire your own feedback here (e.g. a haptic pulse and/or a pop
    *  sound). */
   onBurst?: () => void
   /** The show runs continuously for as long as it's mounted, with no "cycle complete" concept today
-   *  — never called internally. Kept for API symmetry with a future bounded celebration variant; a
+   *  - never called internally. Kept for API symmetry with a future bounded celebration variant; a
    *  caller with nothing to do on completion can simply omit it. */
   onComplete?: () => void
 }
@@ -56,7 +56,7 @@ const Particle = ({ originX, originY, angle, distance, color, outline }: { origi
   useEffect(() => {
     opacity.value = withSequence(withTiming(1, { duration: 120 }), withTiming(0, { duration: FADE_MS, easing: Easing.in(Easing.quad) }))
     progress.value = withTiming(1, { duration: EXPAND_MS, easing: Easing.out(Easing.cubic) })
-    // Deliberately no cleanup — each Burst (and its Particles) is removed from state, and thus
+    // Deliberately no cleanup - each Burst (and its Particles) is removed from state, and thus
     // unmounted, by its own cleanup timer in Fireworks below, well after these run once.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -74,7 +74,7 @@ const Burst = ({ originX, originY, color, outline }: BurstSpec & { outline: stri
   // Randomized once per mount (not per re-render) so a burst's particle spread doesn't reshuffle
   // mid-animation. Each burst is a fresh mount (see the id-keyed list in Fireworks), so this still
   // varies burst-to-burst even though it only runs once here. The Math.random() calls make this
-  // factory intentionally impure — deliberate, since the point is a one-time-per-mount random
+  // factory intentionally impure - deliberate, since the point is a one-time-per-mount random
   // layout rather than a pure derivation of props. (Hangman's copy of this component disables
   // react-hooks/purity around this block; this package's shared lint preset doesn't enable that
   // rule, so there's nothing to suppress here.)
@@ -111,7 +111,7 @@ export const Fireworks = ({ colors, dark = false, onBurst }: FireworksProps): JS
   }
 
   // Keeps spawning bursts at random intervals for as long as this component stays mounted, i.e.
-  // for as long as the caller keeps it rendered — there's no fixed-length "cycle" to restart, the
+  // for as long as the caller keeps it rendered - there's no fixed-length "cycle" to restart, the
   // show just runs continuously until unmounted.
   useEffect(() => {
     if (size.width === 0 || colors.length === 0) return
@@ -121,7 +121,7 @@ export const Fireworks = ({ colors, dark = false, onBurst }: FireworksProps): JS
 
     const spawnBurst = () => {
       const id = nextIdRef.current++
-      // Spread across nearly the entire screen rather than a small centered patch — small margins
+      // Spread across nearly the entire screen rather than a small centered patch - small margins
       // keep a burst's outermost particles from getting clipped right at the edge.
       const originX = size.width * (0.05 + Math.random() * 0.9)
       const originY = size.height * (0.08 + Math.random() * 0.84)
@@ -163,6 +163,6 @@ export const Fireworks = ({ colors, dark = false, onBurst }: FireworksProps): JS
 }
 
 const styles = StyleSheet.create({
-  // Not a bare `pointerEvents` prop — that's deprecated in favor of the style property.
+  // Not a bare `pointerEvents` prop - that's deprecated in favor of the style property.
   inert: { pointerEvents: 'none' }
 })

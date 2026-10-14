@@ -10,10 +10,10 @@ import { GravityWell, type GravityWellProps } from '../../gravity/GravityWell'
 // rather than inspecting any rendered DOM (Circle/Group both render null/passthrough, never real
 // nodes). react-native-reanimated's own mock (src/__mocks__/react-native-reanimated.ts) evaluates
 // useDerivedValue synchronously and returns a plain `{ value: <computed> }` object, matching
-// Hangman's existing mock convention — so a Circle prop built from useDerivedValue can be read via
+// Hangman's existing mock convention - so a Circle prop built from useDerivedValue can be read via
 // `.value` directly, no act()/waitFor needed.
 
-// A hand-rolled SharedValue stand-in — GravityWellProps only ever needs the `.value` shape here, so
+// A hand-rolled SharedValue stand-in - GravityWellProps only ever needs the `.value` shape here, so
 // there's no need to route test fixtures through the mocked `useSharedValue` at all.
 function shared<T>(value: T): SharedValue<T> {
   return { value } as SharedValue<T>
@@ -67,7 +67,7 @@ describe('GravityWell', () => {
 
       expect(circleCalls().length).toBe(DEFAULT_PARTICLE_COUNT + 2)
 
-      // Drawn last, on top of every particle — matching Swirlio's own comment on its outline.
+      // Drawn last, on top of every particle - matching Swirlio's own comment on its outline.
       const outlineProps = circleCalls()[circleCalls().length - 1][0]
       expect(outlineProps.style).toBe('stroke')
       expect(outlineProps.strokeWidth).toBe(1.5)

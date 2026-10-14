@@ -7,11 +7,11 @@ import { GoalDoorFlash, type GoalDoorFlashProps } from '../../hockey/GoalDoorFla
 // other way: `sv.value = 1` immediately followed by `sv.value = withTiming(0, {...})`. The mocked
 // withTiming is a pure passthrough with no simulated progress-over-time (see
 // src/__mocks__/react-native-reanimated.ts), so that second assignment resolves synchronously,
-// inside the same effect, straight to its own target — 0. A triggered-and-settled flash and an
+// inside the same effect, straight to its own target - 0. A triggered-and-settled flash and an
 // untriggered rest state are therefore both exactly 0 under this mock, unlike a ramp-up animation
 // where "resolved" (1) and "never triggered" (0) read as different numbers. This suite can't tell
 // those two states apart via a final derived `.value` the way this package's other animated
-// components' tests do — it instead covers what IS observable regardless: render structure/
+// components' tests do - it instead covers what IS observable regardless: render structure/
 // geometry/defaults, the rest state, that top/bottom are independently derived (not accidentally
 // sharing one SharedValue), and that a hit never throws regardless of hitSide/hitCount shape.
 

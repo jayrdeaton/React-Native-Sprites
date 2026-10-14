@@ -12,7 +12,7 @@ const mockCircle = Circle as unknown as jest.Mock
 
 // react-native-svg's Circle is jest-mocked to a leaf jest.fn (see src/__mocks__/react-native-svg.ts)
 // rather than the host-type string Hangman's own test queried via react-test-renderer, since this
-// package's tests run under jsdom + @testing-library/react instead — so particles are asserted via
+// package's tests run under jsdom + @testing-library/react instead - so particles are asserted via
 // `mockCircle.mock.calls` rather than a rendered-tree query. Likewise the mocked View never fires a
 // real 'layout' event under jsdom, so layout is triggered by calling the `onLayout` prop the mocked
 // View's render function (`mockViewRender`, from src/__mocks__/react-native.ts) captured directly.
@@ -93,7 +93,7 @@ describe('Fireworks', () => {
 
     expect(spawnDelays.length).toBeGreaterThan(1)
     // Not every real interval need differ (the random range is narrow), but across several spawns
-    // a fixed-gap implementation would produce all-identical delays — this pins down that it varies.
+    // a fixed-gap implementation would produce all-identical delays - this pins down that it varies.
     expect(new Set(spawnDelays).size).toBeGreaterThan(1)
   })
 
@@ -105,7 +105,7 @@ describe('Fireworks', () => {
 
     // mockCircle.mock.calls only ever grows (a mocked leaf component has no DOM presence to query
     // the way react-test-renderer's queryAll could, so "currently mounted" isn't directly
-    // observable) — sample its cumulative length repeatedly across a long stretch instead. A
+    // observable) - sample its cumulative length repeatedly across a long stretch instead. A
     // batching implementation would plateau between fixed-size groups; a continuous one keeps
     // adding fresh particles from fresh bursts throughout.
     let sawGrowthAfterFirstBurst = false
