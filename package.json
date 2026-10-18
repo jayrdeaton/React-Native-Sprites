@@ -85,9 +85,9 @@
   },
   "prettier": "@infinitetoken/eslint-config/prettier",
   "devDependencies": {
-    "@infinitetoken/eslint-config": "^0.2.0",
-    "@infinitetoken/jest-config": "^0.4.0",
-    "@infinitetoken/tsconfig": "^0.5.0",
+    "@infinitetoken/eslint-config": "^0.2.1",
+    "@infinitetoken/jest-config": "^0.5.2",
+    "@infinitetoken/tsconfig": "^0.6.0",
     "@shopify/react-native-skia": "^2.6.2",
     "@tastic/core": "^0.14.0",
     "@testing-library/dom": "^10.4.1",
