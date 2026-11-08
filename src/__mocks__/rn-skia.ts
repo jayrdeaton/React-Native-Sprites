@@ -32,6 +32,14 @@ const pathBuilderAddArc = jest.fn(function (this: unknown) {
 const pathBuilderClose = jest.fn(function (this: unknown) {
   return this
 })
+// moveTo/lineTo follow addArc's shape: shared, chainable, so a test reads every point any builder
+// drew this render off one mock (Portal's vortex arms).
+const pathBuilderMoveTo = jest.fn(function (this: unknown) {
+  return this
+})
+const pathBuilderLineTo = jest.fn(function (this: unknown) {
+  return this
+})
 const pathBuilderDetach = jest.fn(() => ({}))
 
 export const Skia = {
@@ -40,6 +48,8 @@ export const Skia = {
     Make: jest.fn(() => ({
       addArc: pathBuilderAddArc,
       close: pathBuilderClose,
+      moveTo: pathBuilderMoveTo,
+      lineTo: pathBuilderLineTo,
       detach: pathBuilderDetach
     }))
   },

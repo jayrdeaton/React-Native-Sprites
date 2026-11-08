@@ -1,7 +1,7 @@
 {
   "name": "@tastic/sprites",
   "version": "0.2.1",
-  "description": "Shared visual effects for React Native games: an SVG+Reanimated Fireworks celebration burst, a Skia+Reanimated GravityWell particle-swirl marker, a Skia+Reanimated set of board shapes (ObstacleRect, GoalPost, Disc, CelebrationRings, MysteryPickup), and a Skia+Reanimated set of hockey rink chrome (ZoneLine, FaceoffCircle, GoalDoorFlash, ScoreWedges)",
+  "description": "Shared visual effects for React Native games: an SVG+Reanimated Fireworks celebration burst, a Skia+Reanimated GravityWell particle-swirl marker, a Skia+Reanimated Portal (vortex, rift or warp gate), a Skia+Reanimated set of board shapes (ObstacleRect, GoalPost, Disc, CelebrationRings, MysteryPickup), and a Skia+Reanimated set of hockey rink chrome (ZoneLine, FaceoffCircle, GoalDoorFlash, ScoreWedges)",
   "keywords": [
     "react-native",
     "expo",
@@ -10,6 +10,7 @@
     "fireworks",
     "particles",
     "gravity-well",
+    "portal",
     "svg",
     "skia",
     "reanimated",
@@ -53,6 +54,13 @@
       "import": "./dist/hockey/index.mjs",
       "require": "./dist/hockey/index.js"
     },
+    "./portal": {
+      "react-native": "./src/portal/index.ts",
+      "browser": "./src/portal/index.ts",
+      "types": "./dist/portal/index.d.ts",
+      "import": "./dist/portal/index.mjs",
+      "require": "./dist/portal/index.js"
+    },
     "./shapes": {
       "react-native": "./src/shapes/index.ts",
       "browser": "./src/shapes/index.ts",
@@ -89,7 +97,7 @@
     "@infinitetoken/jest-config": "^0.5.2",
     "@infinitetoken/tsconfig": "^0.6.0",
     "@shopify/react-native-skia": "^2.6.2",
-    "@tastic/core": "^0.14.0",
+    "@tastic/core": "^0.16.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.2",
     "@types/jest": "^30.0.0",
@@ -102,9 +110,9 @@
     "prettier": "^3.8.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-native": "^0.86.3",
+    "react-native": "^0.88.1",
     "react-native-reanimated": "^4.5.1",
-    "react-native-svg": "^15.15.4",
+    "react-native-svg": "^15.16.1",
     "tsup": "^8.0.0",
     "typescript": "^6.0.3"
   },
