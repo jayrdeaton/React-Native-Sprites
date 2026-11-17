@@ -64,3 +64,7 @@ Each subpath also exports the timing values and pure math its component is built
   - `vortexArmPoints(radius, arm, armCount, shape)`: the `shape.segments + 1` points of vortex arm `arm` of `armCount` (spread evenly round the center), a spiral from `shape.inner` to `shape.outer` (fractions of `radius`) winding `shape.sweepDeg` degrees.
   - `dashArcs(count, fill)`: `count` evenly spaced dashes, each `fill` (0..1) of its slot, as `{ startDeg, sweepDeg }` for Skia's `addArc`.
   - `orbitPoint(distance, angle)`: the point `distance` px out at `angle` radians.
+
+---
+
+Made by [Infinite Token](https://www.infinitetoken.com), the team behind [Lumber](https://lumber.infinitetoken.com): end-to-end encrypted logging.
