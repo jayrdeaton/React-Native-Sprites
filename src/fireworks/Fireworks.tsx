@@ -43,10 +43,6 @@ export type FireworksProps = {
    *  no audio/haptics dependency - wire your own feedback here (e.g. a haptic pulse and/or a pop
    *  sound). */
   onBurst?: () => void
-  /** The show runs continuously for as long as it's mounted, with no "cycle complete" concept today
-   *  - never called internally. Kept for API symmetry with a future bounded celebration variant; a
-   *  caller with nothing to do on completion can simply omit it. */
-  onComplete?: () => void
 }
 
 const Particle = ({ originX, originY, angle, distance, color, outline }: { originX: number; originY: number; angle: number; distance: number; color: string; outline: string }): JSX.Element => {
